@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <button
+      onclick="goBack()"
+      style="position: absolute; padding: 10px; margin-top: 10px; border-radius: 10px; margin-left: 10px;"
+    > 
+      Quay lại
+    </button>
+    <div class="container">
+      <form action="" id="myForm" onsubmit="submitForm(event)">
+        <div class="row">
+          <div class="col">
+            <h3 class="title">Thông tin thanh toán</h3>
+
+            <div class="inputBox">
+              <span>Họ và tên :</span>
+              <input type="text" placeholder="Nguyễn Văn A" />
+            </div>
+            <div class="inputBox">
+              <span>email :</span>
+              <input type="text" placeholder="example@gmail.com" />
+            </div>
+            <div class="inputBox">
+              <span>địa chỉ :</span>
+              <input type="text" placeholder="Đường - Phường - Thị xã" />
+            </div>
+            <div class="inputBox">
+              <span>thành phố :</span>
+              <input type="text" placeholder="Dĩ An" />
+            </div>
+          </div>
+
+          <div class="col">
+            <h3 class="title">Phương thức thanh toán</h3>
+
+            <div class="inputBox">
+              <span>Thẻ khả dụng :</span>
+              <img src="images/card_img.png" alt="" />
+            </div>
+            <div class="inputBox">
+              <span>Tên chủ thẻ :</span>
+              <input type="text" placeholder="Nguyen Van A" />
+            </div>
+            <div class="inputBox">
+              <span>Số thẻ :</span>
+              <input type="number" placeholder="1111-2222-3333-4444" />
+            </div>
+          </div>
+        </div>
+
+        <input
+          type="submit"
+          value="Thanh toán ngay"
+          class="submit-btn"
+          onclick="showNotification()"
+        />
+        <div class="popup" id="popup">
+          <img src="images/Flat_tick_icon.svg.png" alt="" />
+          <h2>Bạn đã mua hàng thành công</h2>
+          <button type="button" onclick="closeNotification()">OK</button>
+        </div>
+      </form>
+    </div>
+    <script>
+      let popup = document.getElementById("popup");
+      function showNotification() {
+        popup.classList.add("open-popup");
+      }
+      function closeNotification() {
+        popup.classList.remove("open-popup");
+      }
+
+      function submitForm(event) {
+        event.preventDefault(); // Ngăn chặn hành vi mặc định của form
+      }
+
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+  </body>
+</html>
